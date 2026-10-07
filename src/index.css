@@ -752,6 +752,10 @@ ul {
     display: none;
   }
   
+  .hero-nav {
+    display: none;
+  }
+  
   .hero {
     padding: 0 2rem;
     height: 500px;
