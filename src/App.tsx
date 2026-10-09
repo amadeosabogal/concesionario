@@ -4,8 +4,8 @@ import './index.css';
 function App() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [selectedCar, setSelectedCar] = useState<any>(null);
-
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setActiveImageIndex(0);
@@ -46,11 +46,14 @@ function App() {
         <div className="logo">
           <i className="fa-solid fa-car-side"></i> Autocar
         </div>
-        <ul className="nav-links">
+        <ul className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
           <li>Inicio</li>
           <li>Vehículos</li>
           <li>Contacto</li>
         </ul>
+        <div className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
+        </div>
       </nav>
 
       {!selectedCar ? (
